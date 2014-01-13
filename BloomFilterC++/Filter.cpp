@@ -11,10 +11,11 @@ bool Filter::addElement(std::string newElement)
 	filterArray[fnv_hash] = 1;
 	filterArray[m_hash] = 1;
 
+	//if there are more hashes than just two
 	if (hashNo>2)
 	{
 		for (int i=3; i<=hashNo; i++)
-		{
+		{	//"mock" multiple hashes using fnv and murmur
 			uint32_t h_i = fnv_hash + i * m_hash;
 			h_i %= filterSize;
 			filterArray[h_i] = 1;
@@ -40,10 +41,12 @@ bool Filter::queryElement(std::string element)
 		found = true;
 	}
 
+	//if there are more hashes than just two
 	if (hashNo>2)
 	{
 		for (int i=3; i<=hashNo; i++)
 		{
+		//"mock" multiple hashes using fnv and murmur
 			uint32_t h_i = fnv_hash + i * m_hash;
 			h_i %= filterSize;
 			if (filterArray[h_i] != 1)
