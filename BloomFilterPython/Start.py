@@ -1,7 +1,7 @@
 from BloomFilter import BloomFilter
 import sys
 import time
-import resource
+#import resource
 
 if(len(sys.argv)!=4):
     print "Invalid input arguments! The number of them is not right!"
@@ -30,7 +30,7 @@ for line in lines:
 input_file.close()
 
 print "Time needed to fill filter: ", time.time() - start_time,"s"
-print "Memory occupied by bloom filter ",resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, "bytes"
+#print "Memory occupied by bloom filter ",resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, "bytes"
 while(True):
     inputed=raw_input("Enter key to check if it is in filter: ")
     if(bloom.query(inputed)):
