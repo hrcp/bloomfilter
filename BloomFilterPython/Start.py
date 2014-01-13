@@ -11,11 +11,14 @@ bloom=BloomFilter()
 try:
     input_file=open(sys.argv[1],"r")
     output_file=open(sys.argv[2],"a+")
+    p=float(sys.argv[3])
 
 except IOError:
     print "Invalid input arguments! Check that the input file exists!"
     exit(0)
-
+except ValueError as e:
+    print "Third argument not a float number!"
+    exit(0)
 lines=input_file.readlines()
 bloom.initialize_using_np(len(lines),float(sys.argv[3]))
 
