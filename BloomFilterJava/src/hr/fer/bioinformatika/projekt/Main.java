@@ -10,6 +10,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
 
+/**
+ * {@code Main} contains the main function that starts a simple interactive
+ * application where the user can query if a element is a bloom filter.
+ * 
+ * @author Ivan Kraljević
+ * 
+ */
 public class Main {
 
 	/**
